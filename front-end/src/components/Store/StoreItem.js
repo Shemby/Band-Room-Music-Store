@@ -20,7 +20,6 @@ class StoreItem extends React.Component {
     const item = await this.props.items.find(
       (product) => product._id == e.target.value
     );
-    item.cartQuantity = 1;
     this.props.addToCart(item);
   }
 
