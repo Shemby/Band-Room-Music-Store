@@ -18,9 +18,13 @@ class StoreItem extends React.Component {
 
   async addToCart(e) {
     const item = await this.props.items.find(
-      (product) => product._id == e.target.value
+      (product) => product._id === e.target.value
     );
-    this.props.addToCart(item);
+    const cartItem = {
+      name: item.name,
+      buy: item.buy,
+    };
+    this.props.addToCart(cartItem);
   }
 
   clickHandler(e) {

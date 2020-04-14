@@ -9,16 +9,19 @@ export const initialState = {
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDED_TO_CART:
+      console.log(action.payload);
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
         cartTotal: state.cartTotal + 1,
+        cartCost: state.cartCost + action.payload.buy,
       };
     case REMOVED_FROM_CART:
       return {
         ...state,
         cartItems: action.payload,
         cartTotal: state.cartTotal - 1,
+        cartCost: state.cartCost - action.payload.buy,
       };
     default:
       return state;

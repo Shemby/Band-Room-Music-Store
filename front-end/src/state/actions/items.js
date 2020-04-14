@@ -72,7 +72,7 @@ export const editItem = (item) => {
       },
       data: item,
       method: 'PATCH',
-      url: `http:localhost:3000/items/${id}`,
+      url: `http://localhost:3000/items/${id}`,
     };
     console.log(options);
     await Axios(options);

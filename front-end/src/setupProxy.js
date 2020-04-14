@@ -1,7 +1,9 @@
-const proxy = require("http-proxy-middleware");
+const proxy = require('http-proxy-middleware');
 
-module.exports = app => {
+module.exports = (app) => {
   app.use(
-    proxy(["/items", "/admin", "/inquiry"], { target: "http://localhost:5000" })
+    proxy(['/items', '/admin', '/inquiry', '/payment'], {
+      target: 'http://localhost:5000',
+    })
   );
 };

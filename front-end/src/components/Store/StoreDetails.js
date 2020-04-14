@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Rent from './Rent';
-import Buy from './Checkout';
 import { connect } from 'react-redux';
 import { toggleStore, toggleRent, toggleBuy } from '../../state/actions/toggle';
 import { addToCart } from '../../state/actions/cart';
@@ -10,8 +9,6 @@ const StoreDetails = (props) => {
   const item = props.currentItem;
   if (props.rentOpen) {
     return <Rent />;
-  } else if (props.buyOpen) {
-    return <Buy />;
   } else {
     return (
       <div className=' a-c-t-n detail'>

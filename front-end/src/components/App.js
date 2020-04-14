@@ -10,7 +10,6 @@ import Gallery from './Gallery/Gallery';
 import Login from './Admin/Login';
 import Footer from './Footer/Footer';
 import Cart from './Store/Cart';
-import Checkout from './Store/Checkout';
 
 import 'normalize.css';
 import '../smaccs/main.scss';
@@ -29,7 +28,6 @@ export class App extends Component {
             <Route path='/gallery' component={Gallery} />
             <Route path='/cato' component={Login} />
             <Route path='/cart' component={Cart} />
-            <Route path='/checkout' component={Checkout} />
           </Switch>
           <Footer />
         </div>

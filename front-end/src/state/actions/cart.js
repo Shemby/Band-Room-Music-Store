@@ -3,7 +3,9 @@ import {
   REMOVED_FROM_CART,
   INCREMENT_CART_ITEM,
   DECREMENT_CART_ITEM,
+  PURCHASE_MADE,
 } from './types';
+import Axios from 'axios';
 
 export const addToCart = (item) => {
   return function (dispatch, getState) {
@@ -41,4 +43,25 @@ export const increment = (item) => {
 
 export const decrement = (item) => {
   return { type: DECREMENT_CART_ITEM, payload: item };
+};
+
+export const purchase = (token) => {
+  return async function (dispatch, getState) {
+    const state = getState();
+    const cart = state.cartReducer.cartItems;
+    const options = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+      data: {
+        item: cart,
+        token,
+      },
+      method: 'POST',
+      url: 'http://localhost:3000/payment',
+    };
+    console.log(options);
+    await Axios(options);
+    dispatch({ type: PURCHASE_MADE });
+  };
 };
